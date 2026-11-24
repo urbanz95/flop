@@ -1,0 +1,26 @@
+{
+  "testnet": {
+    "label": "FLOP Testnet",
+    "rpc_ws": "wss://testnet.flop.network/",
+    "rpc_http": "https://testnet.flop.network/",
+    "expected_genesis": "0x918abd58fb16306b30ef3886514cfaebffecb4de43e82b6f8ec4795c43cfd800",
+    "explorer": "https://testnet.flopscan.io/",
+    "faucet_cmd": "flop --network testnet faucet request {address}",
+    "balance_cmd": "flop --network testnet balance {address}",
+    "chat_cmd": "flop --network testnet --keystore {keystore} --password-env FLOP_KEYSTORE_PASSWORD chat --max-flop {max_flop} \"{prompt}\""
+  },
+  "devnet": {
+    "label": "FLOP Devnet (zero airdrop weight)",
+    "rpc_ws": "wss://rpc.devnet.flop.network/",
+    "rpc_http": "https://rpc.devnet.flop.network",
+    "expected_genesis": "0x99c172c095340ace980631f9123544c6bebd4839f3437e463533422d8be2d631",
+    "explorer": "https://explorer.devnet.flop.network/",
+    "faucet_cmd": "flop --network devnet faucet request {address}",
+    "balance_cmd": "flop --network devnet balance {address}",
+    "chat_cmd": "flop --network devnet --keystore {keystore} --password-env FLOP_KEYSTORE_PASSWORD chat --max-flop {max_flop} \"{prompt}\""
+  },
+  "cli": {
+    "package": "@flop-labs/cli",
+    "version": "0.7.0"
+  }
+}

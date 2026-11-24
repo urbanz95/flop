@@ -1,0 +1,23 @@
+services:
+  flop-bot:
+    build: .
+    container_name: flop-agent-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - FLOP_NETWORK=${FLOP_NETWORK:-testnet}
+      - FLOP_KEYSTORE_PASSWORD=${FLOP_KEYSTORE_PASSWORD}
+      - MAX_FLOP_PER_SESSION=${MAX_FLOP_PER_SESSION:-0.5}
+      - MAX_SESSIONS_PER_DAY=${MAX_SESSIONS_PER_DAY:-40}
+      - MIN_BALANCE_TO_SPEND=${MIN_BALANCE_TO_SPEND:-0.2}
+      - LOOP_SLEEP=${LOOP_SLEEP:-90}
+    volumes:
+      - ./keystore:/app/keystore
+      - ./state:/app/state
+      - ./logs:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
